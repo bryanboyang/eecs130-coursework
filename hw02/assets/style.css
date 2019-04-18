@@ -1,0 +1,134 @@
+
+/*
+Theme: Inspiration, Education, Information
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    text-align: center;
+    color: #595959;
+}
+
+p {
+    font-size: 15pt;
+}
+
+a {
+    text-decoration: none;
+    color: #096dd9;
+    font-size: 15pt;
+}
+
+ul.navigation-bar{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #1890ff;
+    overflow: hidden;
+}
+
+.navigation-bar li {
+    float: left;
+}
+
+.navigation-bar li a {
+    font-size: 14pt;
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.navigation-bar li a:hover {
+    background-color: #096dd9;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    padding: 10px;
+  }
+
+.category-card {
+    border: 0.5px solid #e8e8e8;
+    background-color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.category-card a {
+    text-decoration: none;
+    color: #096dd9;
+    font-size: 15pt;
+}
+
+.category-card img {
+    height: 200px;
+}
+
+.figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.story-card {
+    border: 0.5px solid #e8e8e8;
+    border-radius: 7px;
+    background-color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.story-card img {
+    height: 200px;
+    border-radius: 7px;
+}
+
+.story-card a {
+    text-decoration: none;
+    color: #096dd9;
+    font-size: 15pt;
+}
+
+.story-card p {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 13pt;
+}
+
+section {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.story-detail figure {
+    float: right;
+}
+
+.story-detail img {
+    height: 300px;
+}
+
+.story-detail .left {
+    float: left;
+}
+
+.author-pic {
+    float: right;
+    height: 300px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul li {
+    padding: 5px;
+    font-size: 15pt;
+}
+
