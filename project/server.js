@@ -3,6 +3,8 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const app = express();
 const unirest = require('unirest');
+const Dish = require('./schema');
+const mongoose = require('mongoose');
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +28,35 @@ router.get('/search/:query/:cuisine/:type', (req, res) => {
     })
 })
 
+router.post('/save', (req, res) => {
+    console.log('saving something');
+    var newDish = new Dish(req.body);
+    console.log(newDish);
+    newDish.save()
+    .then(item => {
+        res.send('item saved to DB');
+    })
+    .catch(err => {
+        res.status(400).send({message: err.message});
+    })
+})
 
-console.log(`Listening on port ${process.env.PORT || 8888}`);
-app.listen(process.env.PORT || 8888);
+router.get('/dishes', (req, res) => {
+    Dish.find({})
+        .exec((err, dishes) => {
+            if(err) {
+                res.status(400).send({message: err.message});
+            } else {
+                let dishMap = {};
+                dishes.forEach((dish) => {
+                    dishMap[dish._id] = dish;
+                })
+                res.send(dishMap);
+            }
+        })
+})
+
+mongoose.connect('mongodb://localhost/eecs130', function(err){
+    console.log(`Listening on port ${process.env.PORT || 8888}`);
+    app.listen(process.env.PORT || 8888);
+});
