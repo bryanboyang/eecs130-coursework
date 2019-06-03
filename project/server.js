@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', router);
 
@@ -30,6 +32,7 @@ router.get('/search/:query/:cuisine/:type', (req, res) => {
 
 router.post('/save', (req, res) => {
     console.log('saving something');
+    console.log(req.body);
     var newDish = new Dish(req.body);
     console.log(newDish);
     newDish.save()
@@ -47,11 +50,11 @@ router.get('/dishes', (req, res) => {
             if(err) {
                 res.status(400).send({message: err.message});
             } else {
-                let dishMap = {};
-                dishes.forEach((dish) => {
-                    dishMap[dish._id] = dish;
-                })
-                res.send(dishMap);
+                // let dishMap = {};
+                // dishes.forEach((dish) => {
+                //     dishMap[dish._id] = dish;
+                // })
+                res.send(dishes);
             }
         })
 })

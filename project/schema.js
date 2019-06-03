@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 var dishSchema = new mongoose.Schema({
     title: String,
-    cuisine: String
+    image: String
 })
 
 var Dish = mongoose.model('User', dishSchema);
